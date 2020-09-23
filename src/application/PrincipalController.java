@@ -1,16 +1,28 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.BorderPane;
 
 public class PrincipalController {
 	
-
+	//RELATIONS
+	
+	private EmployeeController employeeControl;
+	//-----------------------------------------------------------------
     @FXML
+    private BorderPane mainPanel;
+	
+	@FXML
     private Button employeeBtt;
 
     @FXML
@@ -46,6 +58,24 @@ public class PrincipalController {
     	
     };
   //-----------------------------------------------------------------------
+    public PrincipalController() {
+		employeeControl = new EmployeeController();
+	}
+    
+    @FXML
+    void employeeWindow(ActionEvent event) {
+    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("Employee.fxml"));
+    	fxml.setController(employeeControl);
+    	
+    	try {
+			Parent root = fxml.load();
+			mainPanel.getChildren().clear();
+			mainPanel.setCenter(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     
     void progressStart() {
     	progressBar.progressProperty().bind(loading.progressProperty());

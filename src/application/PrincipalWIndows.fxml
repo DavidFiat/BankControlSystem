@@ -12,23 +12,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="inner-bg" stylesheets="@../media/Background.css" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../media/Logo.png" />
                </image>
             </ImageView>
-            <Label text="Welcome to the Bank">
+            <Label text="Welcome to the Bank" textFill="WHITE">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="50.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="employeeBtt" disable="true" mnemonicParsing="false" text="EMPLEADO">
+                  <Button fx:id="employeeBtt" disable="true" mnemonicParsing="false" onAction="#employeeWindow" text="EMPLEADO">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="16.0" />
                      </font>
@@ -45,7 +45,7 @@
                <children>
                   <ProgressBar fx:id="progressBar" prefHeight="23.0" prefWidth="268.0" progress="0.0" />
                   <Pane prefHeight="100.0" prefWidth="60.0" />
-                  <ProgressIndicator fx:id="progressIndicator" progress="0.0" />
+                  <ProgressIndicator fx:id="progressIndicator" prefHeight="49.0" prefWidth="43.0" progress="0.0" />
                </children>
             </HBox>
          </children>

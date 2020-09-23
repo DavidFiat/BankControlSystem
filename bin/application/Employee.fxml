@@ -1,45 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Retiro">
-               <font>
-                  <Font name="Comic Sans MS Bold Italic" size="16.0" />
-               </font>
-            </Button>
-            <Pane prefHeight="43.0" prefWidth="600.0" />
-            <Button layoutX="284.0" layoutY="198.0" mnemonicParsing="false" text="Consignacion">
-               <font>
-                  <Font name="Comic Sans MS Bold Italic" size="16.0" />
-               </font>
-            </Button>
-            <Pane layoutX="10.0" layoutY="151.0" prefHeight="43.0" prefWidth="600.0" />
-            <Button layoutX="284.0" layoutY="210.0" mnemonicParsing="false" text="Cancelacion" wrapText="true">
-               <font>
-                  <Font name="Comic Sans MS Bold Italic" size="16.0" />
-               </font>
-            </Button>
-            <Pane layoutX="10.0" layoutY="269.0" prefHeight="43.0" prefWidth="600.0" />
-            <Button layoutX="284.0" layoutY="223.0" mnemonicParsing="false" text="Pago">
-               <font>
-                  <Font name="Comic Sans MS Bold Italic" size="16.0" />
-               </font>
-            </Button>
-            <Pane layoutX="10.0" layoutY="198.0" prefHeight="43.0" prefWidth="600.0" />
-            <Button layoutX="284.0" layoutY="235.0" mnemonicParsing="false" text="UNDO">
-               <font>
-                  <Font name="Comic Sans MS Bold Italic" size="16.0" />
-               </font>
-            </Button>
+            <VBox alignment="CENTER" layoutX="218.0" layoutY="10.0" prefHeight="400.0" prefWidth="231.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="32.0" style="-fx-background-color: media\listo.png;">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="72.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/retirar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Retirar" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="51.0" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="57.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/consignar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Consignar" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="166.0" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="51.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/cancelacion.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Cancelar" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="195.0" layoutY="10.0" prefHeight="400.0" prefWidth="231.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="59.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/pago.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Pagar" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="67.0" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="70.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/registrar.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Registrar" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="169.0" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="55.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/UNDO.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Undo" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
-      </VBox>
+      </HBox>
    </center>
 </BorderPane>

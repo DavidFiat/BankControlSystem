@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 
-	PrincipalController controller;
+	private PrincipalController controller;
 
 	public Main() {
 		controller = new PrincipalController();
@@ -25,7 +25,10 @@ public class Main extends Application {
 			Parent root = fxml.load();
 			Scene sc = new Scene(root);
 			primaryStage.setScene(sc);
+			primaryStage.setResizable(false);
 			primaryStage.show();
+			
+			controller.progressStart();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
