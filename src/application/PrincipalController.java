@@ -9,7 +9,8 @@ import javafx.scene.control.ProgressIndicator;
 
 public class PrincipalController {
 	
-	@FXML
+
+    @FXML
     private Button employeeBtt;
 
     @FXML
@@ -19,7 +20,7 @@ public class PrincipalController {
     private ProgressBar progressBar;
 
     @FXML
-    private ProgressIndicator rpogressIndicator;
+    private ProgressIndicator progressIndicator;
     
     //-----------------------------------------------------------------------
     
@@ -31,21 +32,30 @@ public class PrincipalController {
 
 				@Override
 				protected Integer call() throws Exception {
-					int i = 0;
-					
-					while (i > 1000) {
+					int i;
+				
+					for (i = 0; i < 1000; i++) {
 						updateProgress(i, 1000);
-						Thread.sleep(10);
-						i++;
+						Thread.sleep(5);
 					}
-					
-					
+					enableBtt(true);
 					return i;
 				}
 			};
 		}
     	
     };
+  //-----------------------------------------------------------------------
     
-    //-----------------------------------------------------------------------
+    void progressStart() {
+    	progressBar.progressProperty().bind(loading.progressProperty());
+    	progressIndicator.progressProperty().bind(loading.progressProperty());
+    	
+    	loading.start();
+    }
+    
+    void enableBtt(boolean value) {
+    	employeeBtt.setDisable(!value);
+    	customerBtt.setDisable(!value);
+    }
 }

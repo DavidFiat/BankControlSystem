@@ -45,7 +45,7 @@
                <children>
                   <ProgressBar fx:id="progressBar" prefHeight="23.0" prefWidth="268.0" progress="0.0" />
                   <Pane prefHeight="100.0" prefWidth="60.0" />
-                  <ProgressIndicator fx:id="rpogressIndicator" progress="0.0" />
+                  <ProgressIndicator fx:id="progressIndicator" progress="0.0" />
                </children>
             </HBox>
          </children>

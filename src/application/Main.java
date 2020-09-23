@@ -1,17 +1,22 @@
 package application;
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 =======
+=======
+>>>>>>> master
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+<<<<<<< HEAD
 >>>>>>> master
 import javafx.fxml.FXMLLoader;
 
@@ -30,6 +35,10 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 =======
+=======
+
+public class Main extends Application {
+>>>>>>> master
 	
 	PrincipalController controller;
 	
@@ -46,11 +55,16 @@ public class Main extends Application {
 			Scene sc = new Scene(root);
 			primaryStage.setScene(sc);
 			primaryStage.show();
+			
+			controller.progressStart();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 			
+>>>>>>> master
+=======
 >>>>>>> master
 	}
 	
