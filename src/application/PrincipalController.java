@@ -30,6 +30,7 @@ public class PrincipalController {
 
     @FXML
     private ProgressBar progressBar;
+    
 
     @FXML
     private ProgressIndicator progressIndicator;

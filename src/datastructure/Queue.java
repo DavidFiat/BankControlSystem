@@ -7,28 +7,48 @@ public class Queue<E> implements IQueue<E> {
 	private NodeList<E> rear;
 
 	public Queue() {
-		this.size = 0;
 	}
 
 	@Override
 	public void enqueue(E element) {
 		NodeList<E> elem = new NodeList<>(element);
-		if (rear == null) {
+		if (isEmpty()) {
 			rear = elem;
 			front = elem;
+		} else {
+			elem.setNext(rear);
+			rear.setPrev(elem);
+			rear = elem;
 		}
-
+		size++;
 	}
 
 	@Override
 	public E dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+		E elem = null;
+		if (!isEmpty()) {
+			elem = front.getInfo();
+			if (front.getPrev() != null) {
+				front.getPrev().setNext(null);
+
+			} else {
+				rear = null;
+
+			}
+			front = front.getPrev();
+			size--;
+		}
+
+		return elem;
 	}
 
 	@Override
 	public E front() {
-		return front.getInfo();
+		E elem = null;
+		if (!isEmpty()) {
+			elem = front.getInfo();
+		}
+		return elem;
 	}
 
 	@Override

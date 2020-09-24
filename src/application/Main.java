@@ -18,7 +18,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		FXMLLoader fxml = new FXMLLoader(getClass().getResource("PrincipalWIndows.fxml"));
+		FXMLLoader fxml =new FXMLLoader(getClass().getResource("PrincipalWIndows.fxml"));
 		fxml.setController(controller);
 
 		try {
@@ -36,6 +36,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
+		
 		launch(args);
 	}
 }
