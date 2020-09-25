@@ -8,10 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.StageStyle;
 
 public class PrincipalController {
 	
@@ -59,12 +62,12 @@ public class PrincipalController {
     };
   //-----------------------------------------------------------------------
     public PrincipalController() {
-		employeeControl = new EmployeeController();
+		employeeControl = new EmployeeController(this);
 	}
     
     @FXML
     void employeeWindow(ActionEvent event) {
-    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("Employee.fxml"));
+    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("LittleWIndow.fxml"));
     	fxml.setController(employeeControl);
     	
     	try {
@@ -77,6 +80,7 @@ public class PrincipalController {
 		}
     }
     
+    
     void progressStart() {
     	progressBar.progressProperty().bind(loading.progressProperty());
     	progressIndicator.progressProperty().bind(loading.progressProperty());
@@ -88,4 +92,16 @@ public class PrincipalController {
     	employeeBtt.setDisable(!value);
     	customerBtt.setDisable(!value);
     }
+    
+    @FXML
+    void showTurn(ActionEvent event)  {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Your turn");
+    	alert.setHeaderText(null);
+    	alert.setContentText("Your turn is");
+    	alert.initStyle(StageStyle.UTILITY);
+    	alert.showAndWait();
+    }
+       
+    
 }

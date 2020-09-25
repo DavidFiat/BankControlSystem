@@ -28,13 +28,13 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="employeeBtt" disable="true" mnemonicParsing="false" onAction="#employeeWindow" text="EMPLEADO">
+                  <Button fx:id="employeeBtt" disable="true" mnemonicParsing="false" onAction="#employeeWindow" text="Empleado">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="16.0" />
                      </font>
                   </Button>
                   <Pane prefHeight="100.0" prefWidth="163.0" />
-                  <Button fx:id="customerBtt" disable="true" mnemonicParsing="false" text="CLIENTE">
+                  <Button fx:id="customerBtt" disable="true" mnemonicParsing="false" onAction="#showTurn" text="Pedir Turno">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="16.0" />
                      </font>

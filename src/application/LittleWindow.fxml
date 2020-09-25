@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#showOptions" text="Opciones">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Button>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#showTable" text="Clientes">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="returmBt" mnemonicParsing="false" onAction="#returnInterface" text="Atras">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
