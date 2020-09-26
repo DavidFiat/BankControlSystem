@@ -21,6 +21,8 @@ public class PrincipalController {
 	//RELATIONS
 	
 	private EmployeeController employeeControl;
+
+	private TurnController turnControl; 
 	//-----------------------------------------------------------------
     @FXML
     private BorderPane mainPanel;
@@ -64,6 +66,7 @@ public class PrincipalController {
   //-----------------------------------------------------------------------
     public PrincipalController() {
 		employeeControl = new EmployeeController(this);
+		turnControl = new TurnController(this);
 	}
     
     @FXML
@@ -96,12 +99,17 @@ public class PrincipalController {
     
     @FXML
     void showTurn(ActionEvent event)  {
-    	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Your turn");
-    	alert.setHeaderText(null);
-    	alert.setContentText("Your turn is");
-    	alert.initStyle(StageStyle.UTILITY);
-    	alert.showAndWait();
+    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("TurnWindow.fxml"));
+    	fxml.setController(turnControl);
+    	
+    	try {
+			Parent root = fxml.load();
+			mainPanel.getChildren().clear();
+			mainPanel.setCenter(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
        
     

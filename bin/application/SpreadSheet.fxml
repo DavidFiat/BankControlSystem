@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="632.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="632.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TableView prefHeight="256.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <columns>
@@ -52,6 +52,12 @@
                   <Button mnemonicParsing="false" onAction="#amountView" text="Monto">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="15.0" />
+                     </font>
+                  </Button>
+                  <Pane layoutX="445.0" layoutY="10.0" prefHeight="100.0" prefWidth="33.0" />
+                  <Button mnemonicParsing="false" onAction="#returnInterface" text="Atras">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="13.0" />
                      </font>
                   </Button>
                </children>

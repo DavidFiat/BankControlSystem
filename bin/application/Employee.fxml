@@ -105,7 +105,7 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="67.0" prefHeight="113.0" prefWidth="231.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                        <Button mnemonicParsing="false" onAction="#OpenRegister" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="14.0" />
                            </font>

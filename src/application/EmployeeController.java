@@ -18,6 +18,7 @@ public class EmployeeController {
 	
 	private MenuController menuControl;
 	
+	//---------------------------------------------------------
 	@FXML
     private BorderPane mainPanel;
 	
@@ -26,7 +27,7 @@ public class EmployeeController {
 	
 	
 	public EmployeeController(PrincipalController principalController) {
-		tableControl = new TableController();
+		tableControl = new TableController(this);
 		principalControl = principalController;
 		menuControl = new MenuController(this);
 	}

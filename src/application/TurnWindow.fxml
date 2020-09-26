@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Cliente: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="customerTurn" prefHeight="25.0" prefWidth="246.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Cedula: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="idTurn" prefHeight="25.0" prefWidth="246.0" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#turn" text="Crear Turno">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
