@@ -4,13 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="632.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="621.0" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TableView prefHeight="256.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <columns>
@@ -55,14 +57,69 @@
                      </font>
                   </Button>
                   <Pane layoutX="445.0" layoutY="10.0" prefHeight="100.0" prefWidth="33.0" />
-                  <Button mnemonicParsing="false" onAction="#returnInterface" text="Atras">
-                     <font>
-                        <Font name="Comic Sans MS Bold Italic" size="13.0" />
-                     </font>
-                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
    </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="54.0" prefWidth="632.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="166.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#OpenRegister" prefHeight="26.0" prefWidth="9.0" style="-fx-background-color: media\listo.png;">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../media/registrar.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label text="Registrar" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="221.0" layoutY="10.0" prefHeight="54.0" prefWidth="166.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#showOptions" prefHeight="26.0" prefWidth="9.0" style="-fx-background-color: media\listo.png;">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../media/operaciones.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label text="Opciones" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#returnInterface">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../media/atras.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

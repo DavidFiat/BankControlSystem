@@ -8,21 +8,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.StageStyle;
 
 public class PrincipalController {
 	
 	//RELATIONS
 	
-	private EmployeeController employeeControl;
+	private TableController tableControl;
 
 	private TurnController turnControl; 
+	
+	private QueueViewController queueControl;
 	//-----------------------------------------------------------------
     @FXML
     private BorderPane mainPanel;
@@ -32,6 +31,9 @@ public class PrincipalController {
 
     @FXML
     private Button customerBtt;
+    
+    @FXML
+    private Button queueBT;
 
     @FXML
     private ProgressBar progressBar;
@@ -56,7 +58,7 @@ public class PrincipalController {
 						updateProgress(i, 1000);
 						Thread.sleep(5);
 					}
-					enableBtt(true);
+					enableBtt(false);
 					return i;
 				}
 			};
@@ -65,14 +67,15 @@ public class PrincipalController {
     };
   //-----------------------------------------------------------------------
     public PrincipalController() {
-		employeeControl = new EmployeeController(this);
+		tableControl = new TableController(this);
 		turnControl = new TurnController(this);
+		queueControl = new QueueViewController(this);
 	}
     
     @FXML
     void employeeWindow(ActionEvent event) {
-    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("LittleWIndow.fxml"));
-    	fxml.setController(employeeControl);
+    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("SpreadSHeet.fxml"));
+    	fxml.setController(tableControl);
     	
     	try {
 			Parent root = fxml.load();
@@ -93,8 +96,14 @@ public class PrincipalController {
     }
     
     void enableBtt(boolean value) {
-    	employeeBtt.setDisable(!value);
-    	customerBtt.setDisable(!value);
+    	employeeBtt.setDisable(false);
+    	customerBtt.setDisable(false);
+    	queueBT.setDisable(false);
+    	
+    	if (value) {
+    		progressBar.setVisible(false);
+        	progressIndicator.setVisible(false);
+		}
     }
     
     @FXML
@@ -106,11 +115,27 @@ public class PrincipalController {
 			Parent root = fxml.load();
 			mainPanel.getChildren().clear();
 			mainPanel.setCenter(root);
+			
+			turnControl.initializeCombo();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
        
-    
+    @FXML
+    void showQueue(ActionEvent event) {
+    	FXMLLoader fxml = new FXMLLoader(getClass().getResource("QueueWIndow.fxml"));
+    	fxml.setController(queueControl);
+    	
+    	try {
+			Parent root = fxml.load();
+			mainPanel.getChildren().clear();
+			mainPanel.setCenter(root);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }

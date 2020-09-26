@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -97,27 +97,6 @@
                            </graphic>
                         </Button>
                         <Label text="Pagar" textFill="WHITE">
-                           <font>
-                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="67.0" prefHeight="113.0" prefWidth="231.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#OpenRegister" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
-                           <font>
-                              <Font name="Comic Sans MS Bold Italic" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="70.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../media/registrar.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Label text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="25.0" />
                            </font>
