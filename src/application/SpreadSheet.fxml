@@ -14,7 +14,7 @@
 
 <BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="621.0" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TableView prefHeight="256.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableCustomer" prefHeight="256.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="nameView" prefWidth="225.0" text="NOMBRE" />
           <TableColumn fx:id="idView" minWidth="0.0" prefWidth="124.0" text="CEDULA" />

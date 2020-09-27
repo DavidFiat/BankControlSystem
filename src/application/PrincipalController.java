@@ -81,6 +81,7 @@ public class PrincipalController {
 			Parent root = fxml.load();
 			mainPanel.getChildren().clear();
 			mainPanel.setCenter(root);
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

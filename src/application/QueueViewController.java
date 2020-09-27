@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 
 public class QueueViewController {
@@ -15,6 +16,12 @@ public class QueueViewController {
 	//---------------------------------------------------------------------
 	@FXML
     private BorderPane panel;
+	
+	@FXML
+    private ListView<String> generalList;
+
+    @FXML
+    private ListView<String> priorityList;
 	
 	public QueueViewController(PrincipalController principalController) {
 		principalControl = principalController;

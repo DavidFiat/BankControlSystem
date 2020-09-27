@@ -2,12 +2,15 @@ package application;
 
 import java.io.IOException;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,9 +23,13 @@ public class TableController {
 	
 	private PrincipalController principalControl;
 	
+//	private Person people;
 	//----------------------------------------------------
 	@FXML
     private BorderPane panel;
+	
+	@FXML
+    private TableView<?> tableCustomer;
 	
 	@FXML
     private TableColumn<String, String> nameView;
@@ -35,13 +42,33 @@ public class TableController {
 
     @FXML
     private TableColumn<String, Integer> amountView;
-
-
+    
 	public TableController(PrincipalController principalController) {
 		menuControl = new MenuController(this);
 		principalControl = principalController;
 	}
+	/*
+	public void initialize() {
+		
+		tableCustomer.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Person>() {
 
+			@Override
+			public void changed(ObservableValue<? extends Person> observable, Person oldValue, Person newValue) {
+				//Person p = tableCustomer.getSelectionModel().getSelectedItem();
+				//System.out.println(p.getName());
+			}
+			
+		});
+		
+		
+	}
+	
+	public void prueba() {
+		Person temp = new Person("Julian", "123456789", "10:00", 1000000, "hoy", "mañana");
+		tableCustomer.getItems().add(temp);
+		
+	}
+	*/
 	 @FXML
 	 void returnInterface(ActionEvent event) {
 		 FXMLLoader fxml = new FXMLLoader(getClass().getResource("PrincipalWindows.fxml"));
@@ -96,7 +123,7 @@ public class TableController {
 	
 	 @FXML
 	 void OpenRegister(ActionEvent event) {
-		 FXMLLoader fxml = new FXMLLoader(getClass().getResource("Register2.fxml"));
+		 FXMLLoader fxml = new FXMLLoader(getClass().getResource("Register.fxml"));
 		 fxml.setController(this);
 		 
 		 try {
