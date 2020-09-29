@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +13,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Client;
 
 public class TableController {
 	
@@ -23,52 +27,55 @@ public class TableController {
 	
 	private PrincipalController principalControl;
 	
-//	private Person people;
+    private Client client;
 	//----------------------------------------------------
 	@FXML
     private BorderPane panel;
 	
 	@FXML
-    private TableView<?> tableCustomer;
+    private TableView<Client> tableCustomer;
 	
 	@FXML
-    private TableColumn<String, String> nameView;
+    private TableColumn<Client, String> nameView;
 
     @FXML
-    private TableColumn<String, String> idView;
+    private TableColumn<Client, String> idView;
 
     @FXML
-    private TableColumn<String, String> timeView;
+    private TableColumn<Client, String> timeView;
 
     @FXML
-    private TableColumn<String, Integer> amountView;
+    private TableColumn<Client, Integer> amountView;
+    
     
 	public TableController(PrincipalController principalController) {
 		menuControl = new MenuController(this);
 		principalControl = principalController;
 	}
-	/*
+	
 	public void initialize() {
 		
-		tableCustomer.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Person>() {
+		tableCustomer.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Client>() {
 
 			@Override
-			public void changed(ObservableValue<? extends Person> observable, Person oldValue, Person newValue) {
-				//Person p = tableCustomer.getSelectionModel().getSelectedItem();
-				//System.out.println(p.getName());
+			public void changed(ObservableValue<? extends Client> observable, Client oldValue, Client newValue) {
+                Client c = tableCustomer.getSelectionModel().getSelectedItem();
+				System.out.println(c.getName()	);
 			}
 			
 		});
 		
+		ObservableList<Client> listClient = FXCollections.observableArrayList(
+	    		new Client("Julian", "1000", 1, 2),
+		new Client("Andres", "10002", 1, 2));
 		
+		nameView.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
+		idView.setCellValueFactory(new PropertyValueFactory<Client, String>("ID"));
+		tableCustomer.setItems(listClient);
 	}
 	
-	public void prueba() {
-		Person temp = new Person("Julian", "123456789", "10:00", 1000000, "hoy", "mañana");
-		tableCustomer.getItems().add(temp);
-		
-	}
-	*/
+	
+	
 	 @FXML
 	 void returnInterface(ActionEvent event) {
 		 FXMLLoader fxml = new FXMLLoader(getClass().getResource("PrincipalWindows.fxml"));

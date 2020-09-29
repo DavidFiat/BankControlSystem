@@ -82,6 +82,8 @@ public class PrincipalController {
 			mainPanel.getChildren().clear();
 			mainPanel.setCenter(root);
 			
+			//tableControl.prueba();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

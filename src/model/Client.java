@@ -33,7 +33,7 @@ public class Client {
 		
 		
 	}
-
+	
 	public IStack<Operation> getOperations() {
 		return operations;
 	}
