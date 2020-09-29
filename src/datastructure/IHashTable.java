@@ -2,6 +2,8 @@ package datastructure;
 
 import java.util.List;
 
+import exception.RepeatedElementException;
+
 public interface IHashTable<K, V> {
 
 	public V search(K key);

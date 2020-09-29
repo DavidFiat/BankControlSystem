@@ -4,6 +4,7 @@ import java.util.*;
 
 import datastructure.IStack;
 import datastructure.Stack;
+import exception.NoEnoughMoneyException;
 
 public class Client {
 

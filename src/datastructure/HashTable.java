@@ -3,6 +3,8 @@ package datastructure;
 import java.util.ArrayList;
 import java.util.List;
 
+import exception.RepeatedElementException;
+
 public class HashTable<K, V> implements IHashTable<K, V> {
 
 	public static final int SIZE = 1009;
