@@ -9,8 +9,8 @@ public class HashTableNode<K, V> {
 	private HashTableNode<K, V> prev;
 
 	public HashTableNode(K key, V value) {
-		this.setKey(key);
-		this.setValue(value);
+		this.key = key;
+		this.value = value;
 	}
 
 	public K getKey() {

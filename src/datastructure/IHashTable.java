@@ -1,13 +1,17 @@
 package datastructure;
 
+import java.util.List;
+
+import exception.RepeatedElementException;
+
 public interface IHashTable<K, V> {
-	
 
 	public V search(K key);
 
-	public void add(K key, V value);
+	public void add(K key, V value) throws RepeatedElementException;
 
-	public void delete(K key);
+	public V delete(K key);
 
+	public List<V> returnHash();
 
 }

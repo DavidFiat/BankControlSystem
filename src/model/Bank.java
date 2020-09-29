@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import datastructure.*;
 
 public class Bank {
@@ -9,9 +11,9 @@ public class Bank {
 	private IHeap<Client> priorityQueue;
 
 	public Bank() {
-		clientsQueue = new Queue<>();
-		clients = new HashTable<>();
-		setPriorityQueue(new Heap<Client>());
+		clientsQueue = new Queue<Client>();
+		clients = new HashTable<String, Client>();
+		priorityQueue = new Heap<Client>();
 
 	}
 
@@ -37,6 +39,13 @@ public class Bank {
 
 	public void setPriorityQueue(IHeap<Client> priorityQueue) {
 		this.priorityQueue = priorityQueue;
+	}
+
+	public List<Client> returnClientListByName() {
+		List<Client> l = clients.returnHash();
+		
+		return l;
+
 	}
 
 }
