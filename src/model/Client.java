@@ -13,7 +13,6 @@ public class Client {
 	private String ID;
 	private String account;
 	private int card;
-	private double amount;
 	private String dayOfIncorporation;
 	private int payday;
 	private int year;
@@ -73,14 +72,6 @@ public class Client {
 		this.card = card;
 	}
 
-	public double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
 	public String getDayOfIncorporation() {
 		return dayOfIncorporation;
 	}
@@ -104,8 +95,43 @@ public class Client {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	
-	
-	
 
+	public double getAmount() {
+		return operations.top().getAmount();
+	}
+
+	public void withdraw(double money) throws NoEnoughMoneyException {
+		if (getAmount() < money) {
+			throw new NoEnoughMoneyException(getAmount());
+
+		} else {
+			Operation o = new Operation("Withdrawal", getAmount() - money);
+			operations.push(o);
+		}
+	}
+
+	public void consign(double money) {
+		Operation o = new Operation("Withdrawal", getAmount() + money);
+
+	}
+
+	public void payCreditCard(double debt) throws NoEnoughMoneyException {
+		if (getAmount() < debt) {
+			throw new NoEnoughMoneyException(getAmount());
+
+		} else {
+			Operation o = new Operation("CardPayment", getAmount() - debt);
+			operations.push(o);
+		}
+
+	}
+
+	public Operation visualizeLast() {
+		return operations.top();
+	}
+
+	public void UNDO() {
+		operations.pop();
+
+	}
 }
