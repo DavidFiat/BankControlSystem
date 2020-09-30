@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -18,7 +17,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="customerLb" layoutX="296.0" layoutY="52.0" text="----- -----" textFill="WHITE">
+                  <Label fx:id="customerLb" layoutX="296.0" layoutY="52.0" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>
@@ -32,7 +31,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="idLB" layoutX="296.0" layoutY="52.0" text="#######" textFill="WHITE">
+                  <Label fx:id="idLB" layoutX="296.0" layoutY="52.0" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>
@@ -46,7 +45,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="accountLB" layoutX="296.0" layoutY="52.0" text="#######" textFill="WHITE">
+                  <Label fx:id="accountLB" layoutX="296.0" layoutY="52.0" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>
@@ -60,7 +59,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="accountLB1" text="Debito/Credito" textFill="WHITE">
+                  <Label fx:id="accountLB1" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>
@@ -74,7 +73,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="amountDebitLB" text="########" textFill="WHITE">
+                  <Label fx:id="amountDebitLB" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>
@@ -88,7 +87,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="amountCreditLB" text="########" textFill="WHITE">
+                  <Label fx:id="amountCreditLB" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>

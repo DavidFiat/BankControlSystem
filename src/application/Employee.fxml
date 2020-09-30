@@ -17,7 +17,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="113.0" prefWidth="231.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="32.0" style="-fx-background-color: media\listo.png;">
+                        <Button mnemonicParsing="false" onAction="#retireAction" prefHeight="42.0" prefWidth="32.0" style="-fx-background-color: media\listo.png;">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="14.0" />
                            </font>
@@ -38,7 +38,7 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="51.0" prefHeight="113.0" prefWidth="231.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                        <Button mnemonicParsing="false" onAction="#consignAction" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="14.0" />
                            </font>
@@ -59,7 +59,7 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="166.0" prefHeight="113.0" prefWidth="231.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                        <Button mnemonicParsing="false" onAction="#cancelAction" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="14.0" />
                            </font>
@@ -84,7 +84,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="113.0" prefWidth="231.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                        <Button mnemonicParsing="false" onAction="#payAction" prefHeight="65.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="14.0" />
                            </font>
@@ -105,7 +105,7 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="169.0" prefHeight="113.0" prefWidth="231.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
+                        <Button mnemonicParsing="false" onAction="#undoAction" prefHeight="66.0" prefWidth="66.0" style="-fx-background-color: media\listo.png;">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="14.0" />
                            </font>
@@ -118,6 +118,24 @@
                            </graphic>
                         </Button>
                         <Label text="Undo" textFill="WHITE">
+                           <font>
+                              <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="158.0" prefHeight="113.0" prefWidth="231.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#viewData">
+                           <graphic>
+                              <ImageView fitHeight="52.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/visual.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="Visualizar" textFill="WHITE">
                            <font>
                               <Font name="Comic Sans MS Bold Italic" size="25.0" />
                            </font>

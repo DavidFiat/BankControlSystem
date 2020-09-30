@@ -65,9 +65,7 @@ public class TableController {
 			
 		});
 		
-		ObservableList<Client> listClient = FXCollections.observableArrayList(
-	    		new Client("Julian", "1000", 1, 2),
-		new Client("Andres", "10002", 1, 2));
+		ObservableList<Client> listClient = FXCollections.observableArrayList();
 		
 		nameView.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
 		idView.setCellValueFactory(new PropertyValueFactory<Client, String>("ID"));
