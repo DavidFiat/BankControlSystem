@@ -38,9 +38,6 @@ public class Client {
 		operations = new Stack<>();
 
 	}
-<<<<<<< Updated upstream
-	
-=======
 
 	public Client(String name, String iD) {
 		this.name = name;
@@ -55,7 +52,6 @@ public class Client {
 		this.priority = priority;
 	}
 
->>>>>>> Stashed changes
 	public IStack<Operation> getOperations() {
 		return operations;
 	}
