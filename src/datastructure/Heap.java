@@ -14,8 +14,8 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 	}
 
 	public void heapify(int i) {
-		int l = Left(i);
-		int r = Right(i);
+		int l = left(i);
+		int r = right(i);
 		int largest = i;
 		if (l <= heapSize && elements[l].compareTo(elements[i]) > 0) {
 			largest = l;
@@ -40,12 +40,12 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 		return heapSize;
 	}
 
-	public static int Left(int i) {
+	public static int left(int i) {
 		return (i * 2);
 	}
 
-	public static int Right(int i) {
-		return (i * 2 + 1);	
+	public static int right(int i) {
+		return (i * 2 + 1);
 	}
 
 	public H[] getelements() {
@@ -72,7 +72,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 	@SuppressWarnings("unchecked")
 	public static void heapSort(List list) {
 		buildHeapStatic(list);
-		for (int i = list.size()-1; i >= 2; i--) {
+		for (int i = list.size() - 1; i >= 2; i--) {
 			Object temp = list.get(1);
 			list.set(1, list.get(i));
 			list.set(i, temp);
@@ -90,8 +90,8 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void heapifyStatic(int i, List list) {
-		int l = Left(i);
-		int r = Right(i);
+		int l = left(i);
+		int r = right(i);
 		int largest = i;
 		if (l <= heapSize && ((Comparable) list.get(l)).compareTo(list.get(i)) > 0) {
 			largest = l;
@@ -107,4 +107,47 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 
 		}
 	}
+
+	@Override
+	public void insert(H element) {
+
+		int a = heapSize;
+		int father = (heapSize - 1) / 2;
+		H fathe = null;
+
+		if (a == elements.length) {
+			Object[] tmp = new Object[elements.length + 10];
+			for (int i = 0; i < elements.length; i++) {
+				tmp[i] = elements[i];
+			}
+			elements = (H[]) tmp;
+		}
+
+		elements[a] = element;
+		if (father >= 0)
+			fathe = elements[father];
+		while ((a > 0) && element.compareTo(fathe) < 0) {
+			elements[a] = (H) fathe;
+			a = father;
+			father = (a - 1) / 2;
+			if (father >= 0)
+				fathe = elements[father];
+		}
+		elements[a] = element;
+		heapify(a);
+		heapSize++;
+
+	}
+
+	public void attend() {
+		int last = heapSize - 1;
+
+		if (last != 0) {
+			elements[0] = elements[last];
+		}
+
+		heapSize--;
+		heapify(left(last));
+	}
+
 }

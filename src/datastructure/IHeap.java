@@ -7,4 +7,8 @@ public interface IHeap<H> {
 	public void buildHeap();
 
 	public void heapSort();
+
+	public void insert(H element);
+
+	public void attend();
 }

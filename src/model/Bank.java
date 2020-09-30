@@ -16,7 +16,7 @@ public class Bank {
 		clientsQueue = new Queue<Client>();
 		priorityQueue = new Heap<Client>();
 		clients = new HashTable<String, Client>();
-		setDeserters(new HashTable<String, Client>());
+		deserters = new HashTable<String, Client>();
 
 	}
 
@@ -25,6 +25,7 @@ public class Bank {
 	}
 
 	public void addPriorityQueue(Client c) {
+		priorityQueue.insert(c);
 	}
 
 	public void addDataBase(String ID, Client client) throws RepeatedElementException {
@@ -35,6 +36,10 @@ public class Bank {
 		Client deserter = clients.delete(ID);
 		deserters.add(ID, deserter);
 
+	}
+
+	public void attend() {
+		priorityQueue.attend();
 	}
 
 	public IQueue<Client> getClientsQueue() {
