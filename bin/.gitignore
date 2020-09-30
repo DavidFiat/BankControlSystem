@@ -1,5 +1,4 @@
-/application/
-/media/
-/model/
 /datastructure/
 /exception/
+/model/
+/customExceptions/

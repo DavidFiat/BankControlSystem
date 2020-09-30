@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+import customExceptions.RepeatedElementException;
 import datastructure.*;
 
 public class Bank {
@@ -12,9 +13,22 @@ public class Bank {
 
 	public Bank() {
 		clientsQueue = new Queue<Client>();
-		clients = new HashTable<String, Client>();
 		priorityQueue = new Heap<Client>();
 
+		clients = new HashTable<String, Client>();
+
+	}
+
+	public void addGeneralQueue(Client c) {
+		clientsQueue.enqueue(c);
+	}
+
+	public void addPriorityQueue(Client c) {
+		priorityQueue.add(c);
+	}
+
+	public void addDataBase(String ID, Client client) throws RepeatedElementException {
+		clients.add(ID, client);
 	}
 
 	public IQueue<Client> getClientsQueue() {
@@ -43,7 +57,7 @@ public class Bank {
 
 	public List<Client> returnClientListByName() {
 		List<Client> l = clients.returnHash();
-		
+
 		return l;
 
 	}

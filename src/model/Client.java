@@ -2,14 +2,20 @@ package model;
 
 import java.util.*;
 
+import customExceptions.NoEnoughMoneyException;
 import datastructure.IStack;
 import datastructure.Stack;
-import exception.NoEnoughMoneyException;
 
 public class Client {
 
 	public static final int DEBIT_CARD = 1;
 	public static final int CREDIT_CARD = 2;
+	public static final int GENERAL = 1;
+	public static final int HANDICAPPED = 2;
+	public static final int ELDERLY = 3;
+	public static final int PREGNANT = 4;
+	public static final int CHILDREN_IN_ARM = 5;
+	private int priority;
 	private String name;
 	private String ID;
 	private String account;
@@ -32,7 +38,24 @@ public class Client {
 		operations = new Stack<>();
 
 	}
+<<<<<<< Updated upstream
 	
+=======
+
+	public Client(String name, String iD) {
+		this.name = name;
+		this.ID = iD;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
+>>>>>>> Stashed changes
 	public IStack<Operation> getOperations() {
 		return operations;
 	}
@@ -112,7 +135,8 @@ public class Client {
 	}
 
 	public void consign(double money) {
-		Operation o = new Operation("Withdrawal", getAmount() + money);
+		Operation o = new Operation("Consignation", getAmount() + money);
+		operations.push(o);
 
 	}
 

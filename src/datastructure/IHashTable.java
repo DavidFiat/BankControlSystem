@@ -2,7 +2,7 @@ package datastructure;
 
 import java.util.List;
 
-import exception.RepeatedElementException;
+import customExceptions.RepeatedElementException;
 
 public interface IHashTable<K, V> {
 
