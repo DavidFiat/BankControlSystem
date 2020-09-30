@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Monto: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="amountTF" />
+               </children>
+            </HBox>
+            <Pane prefHeight="100.0" prefWidth="66.0">
+               <children>
+                  <Button fx:id="retireBT" layoutX="251.0" layoutY="29.0" mnemonicParsing="false" text="Retirar" visible="false">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="consignBT" layoutX="241.0" layoutY="29.0" mnemonicParsing="false" text="Consignar" visible="false">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </center>
+   <stylesheets>
+      <URL value="@Background.css" />
+      <URL value="@../media/Background.css" />
+   </stylesheets>
+</BorderPane>
