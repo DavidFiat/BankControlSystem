@@ -38,6 +38,14 @@ public class Bank {
 
 	}
 
+	public Client searchC(String ID) {
+		return clients.search(ID);
+	}
+
+	public Client searchDeserterC(String ID) {
+		return deserters.search(ID);
+	}
+
 	public void attend() {
 		priorityQueue.attend();
 	}
