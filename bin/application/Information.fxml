@@ -40,7 +40,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="50.0" prefWidth="600.0">
                <children>
-                  <Label text="Cuenta Bancaria: " textFill="WHITE">
+                  <Label text="Monto: " textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
@@ -59,7 +59,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="accountLB1" textFill="WHITE">
+                  <Label fx:id="cardLB" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>
@@ -74,20 +74,6 @@
                      </font>
                   </Label>
                   <Label fx:id="amountDebitLB" textFill="WHITE">
-                     <font>
-                        <Font name="Comic Sans MS Bold" size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="285.0" prefHeight="50.0" prefWidth="600.0">
-               <children>
-                  <Label text="Monto Credito: " textFill="WHITE">
-                     <font>
-                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="amountCreditLB" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="25.0" />
                      </font>

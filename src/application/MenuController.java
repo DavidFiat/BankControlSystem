@@ -1,9 +1,9 @@
 package application;
 
 import java.io.IOException;
-import java.security.cert.PKIXRevocationChecker.Option;
 import java.util.Optional;
 
+import customExceptions.NoEnoughMoneyException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +14,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Client;
 
 public class MenuController {
 	
@@ -30,12 +32,15 @@ public class MenuController {
 	@FXML
     private BorderPane panel;
 	
-	//moneWindow.fxml
+	//moneyWindow.fxml
 	@FXML
 	private Button retireBT;
 
 	@FXML
 	private Button consignBT;
+	
+	@FXML
+    private TextField amountTF;
 	
 	//information.fxml
 	@FXML
@@ -48,16 +53,13 @@ public class MenuController {
     private Label accountLB;
 
     @FXML
-    private Label accountLB1;
+    private Label cardLB;
 
     @FXML
     private Label amountDebitLB;
 
-    @FXML
-    private Label amountCreditLB;
-    
     //=========================================================================
-	
+    
 	public MenuController(TableController tableController) {
 		tableControl = tableController;
 	}
@@ -116,11 +118,26 @@ public class MenuController {
 		        stage.setScene(scene);
 		        stage.show();
 		        
+		        showData();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	}
 	
+	private void showData() {
+		customerLb.setText(TableController.cl.getName());
+		idLB.setText(TableController.cl.getID());
+		accountLB.setText(TableController.cl.getAccount());
+		
+		if (TableController.cl.getCard() == 1) {
+			cardLB.setText("Credito");
+		}else if (TableController.cl.getCard() == 2) {
+			cardLB.setText("Debito");
+		}
+		
+		//amountDebitLB.setText(String.valueOf(TableController.cl.getAmount()));
+	}
+
 	void openMoneyWindow() {
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("moneyWindow.fxml"));
 		fxml.setController(this);
@@ -146,6 +163,8 @@ public class MenuController {
 		openMoneyWindow();
 		consignBT.setVisible(true);
 		retireBT.setVisible(false);
+		
+		TableController.cl.consign(Double.parseDouble(amountTF.getText()));
 	}
 	 
 	@FXML
@@ -153,19 +172,29 @@ public class MenuController {
 		openMoneyWindow();
 		retireBT.setVisible(true);
 		consignBT.setVisible(false);
+		
+		try {
+			TableController.cl.withdraw(Double.parseDouble(amountTF.getText()));
+		} catch (NoEnoughMoneyException ne) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("DINERO INSUFICIENTE");
+			alert.setHeaderText(null);
+			alert.setContentText(ne.getMessage());
+			alert.showAndWait();
+		}
 	}
 	
 	@FXML
     void cancelAction(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("WARNING CANCEL");
-		alert.setHeaderText(null);
+		alert.setHeaderText("La operacion que vas a cancelar es:" + TableController.cl.visualizeLast().getOperation());
 		alert.setContentText("¿Seguro que quieres cancelar la operacion?");
 		alert.initStyle(StageStyle.UTILITY);
 		
 		Optional<ButtonType>result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
-			//metodo cancelar
+			
 		}
     }
 
@@ -179,7 +208,7 @@ public class MenuController {
 		
 		Optional<ButtonType>result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
-			//metodo cancelar
+			TableController.cl.UNDO();
 		}
     }
 }

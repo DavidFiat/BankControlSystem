@@ -9,7 +9,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 	private static int heapSize;
 
 	public Heap() {
-		elements = (H[]) new Object[CAPACITY];
+	//	elements = (H[]) new Object[CAPACITY];
 		heapSize = 0;
 	}
 

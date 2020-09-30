@@ -1,7 +1,9 @@
 package application;
 
 import java.io.IOException;
+import java.util.List;
 
+import datastructure.HashTable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -11,13 +13,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Bank;
 import model.Client;
 
 public class TableController {
@@ -27,7 +34,8 @@ public class TableController {
 
 	private PrincipalController principalControl;
 
-	private Client client;
+	static Client cl;
+
 	// ----------------------------------------------------
 	@FXML
 	private BorderPane panel;
@@ -45,41 +53,51 @@ public class TableController {
 	private TableColumn<Client, String> timeView;
 
 	@FXML
-	private TableColumn<Client, Integer> amountView;
+	private TableColumn<Client, String> amountView;
+	
+	//=====================================================
+	
+	//register.fxml
+	@FXML
+    private TextField customerTF;
 
+    @FXML
+    private TextField idTF;
+
+    @FXML
+    private TextField accountTF;
+
+    @FXML
+    private RadioButton debitBox;
+
+    @FXML
+    private RadioButton creditBox;
+
+    //==================================================================
+    
 	public TableController(PrincipalController principalController) {
 		menuControl = new MenuController(this);
 		principalControl = principalController;
 	}
 
-	public void initialize() {
+	public void initialize(List<Client> list) {
 
 		tableCustomer.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Client>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Client> observable, Client oldValue, Client newValue) {
-				Client c = tableCustomer.getSelectionModel().getSelectedItem();
-				System.out.println(c.getName());
+				cl = tableCustomer.getSelectionModel().getSelectedItem();
+				System.out.println(cl.getName());
 			}
 
 		});
-<<<<<<< Updated upstream
+		ObservableList<Client> listClient = FXCollections.observableArrayList(list);
 
-		ObservableList<Client> listClient = FXCollections.observableArrayList();
 
-		ObservableList<Client> listClient = FXCollections.observableArrayList(new Client("Julian", "1000", "1", 2),
-				new Client("Andres", "10002", "1", 2));
-
-=======
-		
-		ObservableList<Client> listClient = FXCollections.observableArrayList();
-		/*ObservableList<Client> listClient = FXCollections.observableArrayList(new Client("Julian", "1000", "1", 2),
-				new Client("Andres", "10002", "1", 2));
-
-*/
->>>>>>> Stashed changes
 		nameView.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
 		idView.setCellValueFactory(new PropertyValueFactory<Client, String>("ID"));
+		timeView.setCellValueFactory(new PropertyValueFactory<Client, String>("year"));
+		//amountView.setCellValueFactory(new PropertyValueFactory<Client, String>("amount"));
 		tableCustomer.setItems(listClient);
 	}
 
@@ -123,12 +141,12 @@ public class TableController {
 
 	@FXML
 	void idView(ActionEvent event) {
-
+		initialize(principalControl.list(2));
 	}
 
 	@FXML
 	void nameView(ActionEvent event) {
-
+		
 	}
 
 	@FXML
@@ -157,4 +175,28 @@ public class TableController {
 		}
 
 	}
+	
+	@FXML
+    void register(ActionEvent event) {
+		String name = customerTF.getText();
+		String id = idTF.getText();
+		String account = accountTF.getText();
+		int card = 0;
+		
+		if (debitBox.isSelected()) {
+			card = 2;
+		}
+		if (creditBox.isSelected()) {
+			card = 1;
+		}
+		
+		Client c = new Client(name, id, account, card, -1);
+		
+		principalControl.addClient(c);
+		
+		customerTF.setText("");
+		idTF.setText("");
+		accountTF.setText("");
+    }
+
 }

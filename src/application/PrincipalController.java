@@ -1,18 +1,23 @@
 package application;
 
 import java.io.IOException;
+import java.util.List;
 
+import customExceptions.RepeatedElementException;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import model.Bank;
+import model.Client;
 
 public class PrincipalController {
 	
@@ -145,4 +150,37 @@ public class PrincipalController {
 			e.printStackTrace();
 		}
     }
+    
+    void addClient(Client c) {
+    	Alert alert;
+    	try {
+			bank.addDataBase(c.getID(), c);
+			alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("REGISTERED");
+			alert.setHeaderText(null);
+			alert.setContentText("El cliente ha sido registrado");
+			alert.showAndWait();
+		} catch (RepeatedElementException e) {
+			alert = new Alert(AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setHeaderText(null);
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
+    }
+    
+    public List<Client> list(int list){
+		List<Client> li = null;
+		
+		if (list == 1) {
+			li = bank.returnClientListByName();
+			System.out.println(li.toString());
+		}
+		if (list == 2) {
+			li = bank.returnClientListByID();
+		}
+		return	 li;
+    	
+    }
 }
+
