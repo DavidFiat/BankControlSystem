@@ -45,7 +45,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 	}
 
 	public static int Right(int i) {
-		return (i * 2 + 1);
+		return (i * 2 + 1);	
 	}
 
 	public H[] getelements() {
