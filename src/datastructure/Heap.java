@@ -72,7 +72,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 	@SuppressWarnings("unchecked")
 	public static void heapSort(List list) {
 		buildHeapStatic(list);
-		for (int i = list.size() - 1; i >= 2; i--) {
+		for (int i = list.size()-1; i >= 2; i--) {
 			Object temp = list.get(1);
 			list.set(1, list.get(i));
 			list.set(i, temp);

@@ -9,13 +9,14 @@ public class Bank {
 
 	private IQueue<Client> clientsQueue;
 	private IHashTable<String, Client> clients;
+	private IHashTable<String, Client> deserters;
 	private IHeap<Client> priorityQueue;
 
 	public Bank() {
 		clientsQueue = new Queue<Client>();
 		priorityQueue = new Heap<Client>();
-
 		clients = new HashTable<String, Client>();
+		setDeserters(new HashTable<String, Client>());
 
 	}
 
@@ -28,6 +29,12 @@ public class Bank {
 
 	public void addDataBase(String ID, Client client) throws RepeatedElementException {
 		clients.add(ID, client);
+	}
+
+	public void deleted(String ID) throws RepeatedElementException {
+		Client deserter = clients.delete(ID);
+		deserters.add(ID, deserter);
+
 	}
 
 	public IQueue<Client> getClientsQueue() {
@@ -44,6 +51,14 @@ public class Bank {
 
 	public void setClients(IHashTable<String, Client> clients) {
 		this.clients = clients;
+	}
+
+	public IHashTable<String, Client> getDeserters() {
+		return deserters;
+	}
+
+	public void setDeserters(IHashTable<String, Client> deserters) {
+		this.deserters = deserters;
 	}
 
 	public IHeap<Client> getPriorityQueue() {
