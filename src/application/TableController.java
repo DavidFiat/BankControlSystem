@@ -63,12 +63,21 @@ public class TableController {
 			}
 
 		});
+<<<<<<< Updated upstream
 
 		ObservableList<Client> listClient = FXCollections.observableArrayList();
 
 		ObservableList<Client> listClient = FXCollections.observableArrayList(new Client("Julian", "1000", "1", 2),
 				new Client("Andres", "10002", "1", 2));
 
+=======
+		
+		ObservableList<Client> listClient = FXCollections.observableArrayList();
+		/*ObservableList<Client> listClient = FXCollections.observableArrayList(new Client("Julian", "1000", "1", 2),
+				new Client("Andres", "10002", "1", 2));
+
+*/
+>>>>>>> Stashed changes
 		nameView.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
 		idView.setCellValueFactory(new PropertyValueFactory<Client, String>("ID"));
 		tableCustomer.setItems(listClient);

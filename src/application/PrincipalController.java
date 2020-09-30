@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.BorderPane;
+import model.Bank;
 
 public class PrincipalController {
 	
@@ -22,6 +23,8 @@ public class PrincipalController {
 	private TurnController turnControl; 
 	
 	private QueueViewController queueControl;
+	
+	private Bank bank;
 	//-----------------------------------------------------------------
     @FXML
     private BorderPane mainPanel;
@@ -70,6 +73,7 @@ public class PrincipalController {
 		tableControl = new TableController(this);
 		turnControl = new TurnController(this);
 		queueControl = new QueueViewController(this);
+		bank = new Bank();
 	}
     
     @FXML
