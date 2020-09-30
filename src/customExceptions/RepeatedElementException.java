@@ -1,4 +1,4 @@
-package exception;
+package customExceptions;
 
 public class RepeatedElementException extends Exception {
 

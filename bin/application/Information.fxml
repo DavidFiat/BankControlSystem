@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-bg" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Cliente: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="customerLb" layoutX="296.0" layoutY="52.0" text="----- -----" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Cedula: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idLB" layoutX="296.0" layoutY="52.0" text="#######" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Cuenta Bancaria: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="accountLB" layoutX="296.0" layoutY="52.0" text="#######" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Tarjetas: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="accountLB1" text="Debito/Credito" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Monto Debito: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="amountDebitLB" text="########" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="285.0" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <Label text="Monto Credito: " textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="amountCreditLB" text="########" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

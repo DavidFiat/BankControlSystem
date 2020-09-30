@@ -2,14 +2,20 @@ package model;
 
 import java.util.*;
 
+import customExceptions.NoEnoughMoneyException;
 import datastructure.IStack;
 import datastructure.Stack;
-import exception.NoEnoughMoneyException;
 
-public class Client {
+public class Client implements Comparable<Client> {
 
 	public static final int DEBIT_CARD = 1;
 	public static final int CREDIT_CARD = 2;
+	public static final int GENERAL = 1;
+	public static final int HANDICAPPED = 2;
+	public static final int ELDERLY = 3;
+	public static final int PREGNANT = 4;
+	public static final int CHILDREN_IN_ARM = 5;
+	private int priority;
 	private String name;
 	private String ID;
 	private String account;
@@ -20,7 +26,7 @@ public class Client {
 	private Calendar c;
 	private IStack<Operation> operations;
 
-	public Client(String name, String iD, String account, int card) {
+	public Client(String name, String iD, String account, int card, int priority) {
 		this.name = name;
 		this.ID = iD;
 		this.account = account;
@@ -32,7 +38,21 @@ public class Client {
 		operations = new Stack<>();
 
 	}
-	
+
+	public Client(String name, String iD, int priority) {
+		this.name = name;
+		this.ID = iD;
+		this.priority = priority;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
 	public IStack<Operation> getOperations() {
 		return operations;
 	}
@@ -112,7 +132,8 @@ public class Client {
 	}
 
 	public void consign(double money) {
-		Operation o = new Operation("Withdrawal", getAmount() + money);
+		Operation o = new Operation("Consignation", getAmount() + money);
+		operations.push(o);
 
 	}
 
@@ -135,4 +156,14 @@ public class Client {
 		operations.pop();
 
 	}
+
+	public int compareTo(Client c) {
+		return name.compareTo(c.getName());
+
+	}
+
+	public int compareById(Client client) {
+		return ID.compareTo(client.getID());
+	}
+
 }

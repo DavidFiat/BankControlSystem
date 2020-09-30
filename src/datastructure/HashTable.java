@@ -3,7 +3,7 @@ package datastructure;
 import java.util.ArrayList;
 import java.util.List;
 
-import exception.RepeatedElementException;
+import customExceptions.RepeatedElementException;
 
 public class HashTable<K, V> implements IHashTable<K, V> {
 
