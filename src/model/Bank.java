@@ -24,7 +24,6 @@ public class Bank {
 	}
 
 	public void addPriorityQueue(Client c) {
-		priorityQueue.add(c);
 	}
 
 	public void addDataBase(String ID, Client client) throws RepeatedElementException {
@@ -57,7 +56,24 @@ public class Bank {
 
 	public List<Client> returnClientListByName() {
 		List<Client> l = clients.returnHash();
+		Heap.heapSort(l);
+		return l;
 
+	}
+
+	public List<Client> returnClientListByID() {
+		List<Client> l = clients.returnHash();
+		for (int i = 0; i < l.size(); i++) {
+			for (int i2 = 0; i2 < l.size() - 1 - i; i2++) {
+				if (l.get(i2).compareById(l.get(i2 + 1)) > 0) {
+
+					Client temp = l.get(i2);
+					l.set(i2, l.get(i2 + 1));
+					l.set(i2 + 1, temp);
+
+				}
+			}
+		}
 		return l;
 
 	}

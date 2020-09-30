@@ -6,7 +6,7 @@ import customExceptions.NoEnoughMoneyException;
 import datastructure.IStack;
 import datastructure.Stack;
 
-public class Client {
+public class Client implements Comparable<Client> {
 
 	public static final int DEBIT_CARD = 1;
 	public static final int CREDIT_CARD = 2;
@@ -26,7 +26,7 @@ public class Client {
 	private Calendar c;
 	private IStack<Operation> operations;
 
-	public Client(String name, String iD, String account, int card) {
+	public Client(String name, String iD, String account, int card, int priority) {
 		this.name = name;
 		this.ID = iD;
 		this.account = account;
@@ -39,9 +39,10 @@ public class Client {
 
 	}
 
-	public Client(String name, String iD) {
+	public Client(String name, String iD, int priority) {
 		this.name = name;
 		this.ID = iD;
+		this.priority = priority;
 	}
 
 	public int getPriority() {
@@ -155,4 +156,14 @@ public class Client {
 		operations.pop();
 
 	}
+
+	public int compareTo(Client c) {
+		return name.compareTo(c.getName());
+
+	}
+
+	public int compareById(Client client) {
+		return ID.compareTo(client.getID());
+	}
+
 }
