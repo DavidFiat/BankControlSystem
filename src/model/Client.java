@@ -160,7 +160,7 @@ public class Client implements Comparable<Client> {
 	}
 
 	public int compareTo(Client c) {
-		return name.compareTo(c.getName());
+		return (int) (this.getAmount() - (c.getAmount()));
 
 	}
 
