@@ -9,10 +9,12 @@ public class HashTable<K, V> implements IHashTable<K, V> {
 
 	public static final int SIZE = 1009;
 	private HashTableNode<K, V>[] hashTableNodes;
+	private int size;
 
 	@SuppressWarnings("unchecked")
 	public HashTable() {
 		hashTableNodes = new HashTableNode[SIZE];
+		size = 0;
 	}
 
 	@Override
@@ -34,6 +36,10 @@ public class HashTable<K, V> implements IHashTable<K, V> {
 		return value;
 	}
 
+	public int Size() {
+		return size;
+	}
+
 	@Override
 	public void add(K key, V value) throws RepeatedElementException {
 		int i = key.hashCode() % SIZE;
@@ -52,6 +58,8 @@ public class HashTable<K, V> implements IHashTable<K, V> {
 			hashTableNodes[i] = h1;
 
 		}
+		size++;
+
 	}
 
 	@Override
@@ -78,6 +86,7 @@ public class HashTable<K, V> implements IHashTable<K, V> {
 
 			}
 		}
+		size--;
 		return value;
 
 	}

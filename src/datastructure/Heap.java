@@ -1,22 +1,41 @@
 package datastructure;
 
+<<<<<<< HEAD
 public class Heap<H extends Comparable<H>> implements IHeap<H> {
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+public class Heap<H> implements IHeap<H> {
+>>>>>>> master
 
 	public final static int CAPACITY = 100;
 	private H[] elements;
-	private static int heapSize;
+	private int heapSize;
 
 	
 	public Heap() {
+<<<<<<< HEAD
 		//elements = (H[]) new Object[CAPACITY];
+=======
+		elements = (H[]) new Object[CAPACITY];
+>>>>>>> master
 		heapSize = 0;
 	}
 
-	public int length() {
-		return elements.length;
+	public Heap(int capacity) {
+		elements = (H[]) new Object[capacity];
+		heapSize = 0;
+
 	}
 
-	public int getHeapSize() {
+	public Heap(Object[] array) {
+		elements = (H[]) array;
+		heapSize = array.length - 1;
+
+	}
+
+	public int Size() {
 		return heapSize;
 	}
 
@@ -32,15 +51,19 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 		return elements;
 	}
 
-	public void heapify(int i) {
-		int l = left(i);
-		int r = right(i);
+	public int Length() {
+		return elements.length;
+	}
+
+	private void heapify(int i) {
+		int left = left(i);
+		int right = right(i);
 		int largest = i;
-		if (l <= heapSize && elements[l].compareTo(elements[i]) > 0) {
-			largest = l;
+		if (left <= heapSize && ((Comparable) elements[left]).compareTo(elements[i]) > 0) {
+			largest = left;
 		}
-		if (r <= heapSize && elements[r].compareTo(elements[largest]) > 0) {
-			largest = r;
+		if (right <= heapSize && ((Comparable) elements[right]).compareTo(elements[largest]) > 0) {
+			largest = right;
 		}
 		if (largest != i) {
 			H temp = elements[i];
@@ -51,7 +74,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 		}
 	}
 
-	public void buildHeap() {
+	private void buildHeap() {
 		for (int i = (int) Math.floor(heapSize / 2); i >= 1; i--) {
 			heapify(i);
 		}
@@ -69,6 +92,28 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 	}
 
 	@SuppressWarnings("unchecked")
+<<<<<<< HEAD
+=======
+	public static <H> List<H> heapSort(List<H> list) {
+		Object[] a = list.toArray();
+		Heap<H> heap = new Heap<H>(a);
+		heap.buildHeap();
+		heap.heapSort();
+		System.out.println(heap.Length());
+		return (List<H>) heap.arrayToList();
+
+	}
+
+	private List<H> arrayToList() {
+		List<H> l = new ArrayList<H>();
+		for (int i = 0; i < Length(); i++) {
+			l.add(elements[i]);
+		}
+		return l;
+
+	}
+
+>>>>>>> master
 	@Override
 	public void insert(H element) {
 
@@ -87,7 +132,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 		elements[a] = element;
 		if (father >= 0)
 			fathe = elements[father];
-		while ((a > 0) && element.compareTo(fathe) < 0) {
+		while ((a > 0) && ((Comparable) element).compareTo(fathe) < 0) {
 			elements[a] = (H) fathe;
 			a = father;
 			father = (a - 1) / 2;

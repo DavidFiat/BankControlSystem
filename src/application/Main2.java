@@ -10,18 +10,23 @@ public class Main2 {
 	public static void main(String[] args) {
 		List<String> l = new ArrayList<String>();
 
-		l.add("C");
-		l.add("D");
-		l.add("A");
-		l.add("I");
-		l.add("B");
-		l.add("C");
-		l.add("F");
-		l.add("E");
-		l.add("F");
+		l.add("2");
+		l.add("5");
+		l.add("1");
+		l.add("4");
+		l.add("89");
+		l.add("2");
+		l.add("432");
+		l.add("11");
+		l.add("98");
 
+<<<<<<< HEAD
 	//	List<String> a = Heap.heapSort(l);
 		System.out.println(l);
+=======
+		List<String> a = Heap.heapSort(l);
+		System.out.println(a);
+>>>>>>> master
 
 	}
 
