@@ -1,6 +1,11 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Vector;
 
 import customExceptions.RepeatedElementException;
 import datastructure.*;
@@ -82,10 +87,23 @@ public class Bank {
 		this.priorityQueue = priorityQueue;
 	}
 
-	public List<Client> returnClientListByName() {
+	public List<Client> returnClientListByAmount() {
 		List<Client> l = clients.returnHash();
-		//Heap.heapSort(l);
-		return l;
+		Client[] cl = (Client[]) l.toArray();
+		Arrays.sort(cl, new Comparator<Client>() {
+
+			@Override
+			public int compare(Client c1, Client c2) {
+				return (int) (c1.getAmount() - c2.getAmount());
+			}
+
+		});
+		List<Client> c = new ArrayList<Client>();
+		for (int i = 0; i < cl.length; i++) {
+			c.add(cl[i]);
+		}
+
+		return c;
 
 	}
 
@@ -104,6 +122,47 @@ public class Bank {
 		}
 		return l;
 
+	}
+
+//BucketSort
+	public List<Client> returnClientListByName() {
+		List<Client> lista = clients.returnHash();
+		if (lista.size() <= 0)
+			return lista;
+
+		@SuppressWarnings("unchecked")
+		Vector<Client>[] buckets = new Vector[lista.size()];
+		for (int i = 0; i < lista.size(); i++) {
+			buckets[i] = new Vector<>();
+		}
+
+		for (int i = 0; i < lista.size(); i++) {
+			buckets[i].add(lista.get(i));
+		}
+
+		for (int i = 0; i < lista.size(); i++) {
+			Collections.sort(buckets[i]);
+		}
+
+		int index = 0;
+		for (int i = 0; i < lista.size(); i++) {
+			for (int j = 0; j < buckets[i].size(); j++) {
+				lista.set(index++, buckets[i].get(j));
+			}
+		}
+		return lista;
+	}
+
+	public List<Client> returnClientListByYear() {
+		List<Client> lista = clients.returnHash();
+		Collections.sort(lista, new Comparator<Client>() {
+
+			@Override
+			public int compare(Client o1, Client o2) {
+				return o1.getYear() - (o2.getYear());
+			}
+		});
+		return lista;
 	}
 
 }
