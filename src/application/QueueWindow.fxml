@@ -72,7 +72,7 @@
                         <Font name="Comic Sans MS Bold Italic" size="22.0" />
                      </font>
                   </Label>
-                  <Button layoutX="116.0" layoutY="283.0" mnemonicParsing="false" text="Atender">
+                  <Button layoutX="116.0" layoutY="283.0" mnemonicParsing="false" onAction="#attendPriority" text="Atender">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="14.0" />
                      </font>

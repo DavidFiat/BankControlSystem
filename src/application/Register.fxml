@@ -36,16 +36,6 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
                <children>
-                  <Label text="Cuenta Bancaria: " textFill="WHITE">
-                     <font>
-                        <Font name="Comic Sans MS Bold Italic" size="25.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="accountTF" prefHeight="25.0" prefWidth="152.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
-               <children>
                   <Label text="Tarjetas: " textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="25.0" />

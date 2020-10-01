@@ -1,13 +1,12 @@
 package datastructure;
 
-<<<<<<< HEAD
-public class Heap<H extends Comparable<H>> implements IHeap<H> {
-=======
-import java.util.ArrayList;
+//public class Heap<H extends Comparable<H>> implements IHeap<H> {
+
+import java.util.ArrayList; 
 import java.util.List;
 
 public class Heap<H> implements IHeap<H> {
->>>>>>> master
+
 
 	public final static int CAPACITY = 100;
 	private H[] elements;
@@ -15,11 +14,7 @@ public class Heap<H> implements IHeap<H> {
 
 	
 	public Heap() {
-<<<<<<< HEAD
-		//elements = (H[]) new Object[CAPACITY];
-=======
 		elements = (H[]) new Object[CAPACITY];
->>>>>>> master
 		heapSize = 0;
 	}
 
@@ -92,8 +87,6 @@ public class Heap<H> implements IHeap<H> {
 	}
 
 	@SuppressWarnings("unchecked")
-<<<<<<< HEAD
-=======
 	public static <H> List<H> heapSort(List<H> list) {
 		Object[] a = list.toArray();
 		Heap<H> heap = new Heap<H>(a);
@@ -113,7 +106,6 @@ public class Heap<H> implements IHeap<H> {
 
 	}
 
->>>>>>> master
 	@Override
 	public void insert(H element) {
 

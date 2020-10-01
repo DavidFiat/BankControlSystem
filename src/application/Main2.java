@@ -20,13 +20,11 @@ public class Main2 {
 		l.add("11");
 		l.add("98");
 
-<<<<<<< HEAD
 	//	List<String> a = Heap.heapSort(l);
 		System.out.println(l);
-=======
+
 		List<String> a = Heap.heapSort(l);
 		System.out.println(a);
->>>>>>> master
 
 	}
 
