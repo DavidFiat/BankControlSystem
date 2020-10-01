@@ -8,29 +8,25 @@ public class Heap<H> implements IHeap<H> {
 	public final static int CAPACITY = 100;
 	private H[] elements;
 	private int heapSize;
-	private final int lenght;
 
 	public Heap() {
 		elements = (H[]) new Object[CAPACITY];
 		heapSize = 0;
-		lenght = elements.length;
 	}
 
 	public Heap(int capacity) {
 		elements = (H[]) new Object[capacity];
 		heapSize = 0;
-		lenght = elements.length;
 
 	}
 
 	public Heap(Object[] array) {
 		elements = (H[]) array;
-		heapSize = 0;
-		lenght = elements.length;
+		heapSize = array.length - 1;
 
 	}
 
-	public int getHeapSize() {
+	public int Size() {
 		return heapSize;
 	}
 
@@ -46,15 +42,19 @@ public class Heap<H> implements IHeap<H> {
 		return elements;
 	}
 
+	public int Length() {
+		return elements.length;
+	}
+
 	private void heapify(int i) {
-		int l = left(i);
-		int r = right(i);
+		int left = left(i);
+		int right = right(i);
 		int largest = i;
-		if (l <= heapSize && ((Comparable) elements[l]).compareTo(elements[i]) > 0) {
-			largest = l;
+		if (left <= heapSize && ((Comparable) elements[left]).compareTo(elements[i]) > 0) {
+			largest = left;
 		}
-		if (r <= heapSize && ((Comparable) elements[r]).compareTo(elements[largest]) > 0) {
-			largest = r;
+		if (right <= heapSize && ((Comparable) elements[right]).compareTo(elements[largest]) > 0) {
+			largest = right;
 		}
 		if (largest != i) {
 			H temp = elements[i];
@@ -87,24 +87,15 @@ public class Heap<H> implements IHeap<H> {
 		Object[] a = list.toArray();
 		Heap<H> heap = new Heap<H>(a);
 		heap.buildHeap();
-		heap.heapSort1();
+		heap.heapSort();
+		System.out.println(heap.Length());
 		return (List<H>) heap.arrayToList();
 
 	}
 
-	private void heapSort1() {
-		while (heapSize > 1) {
-			H temp = elements[1];
-			elements[1] = elements[heapSize];
-			elements[heapSize] = temp;
-			heapSize = heapSize - 1;
-			heapify(1);
-		}
-	}
-
 	private List<H> arrayToList() {
 		List<H> l = new ArrayList<H>();
-		for (int i = 0; i < heapSize; i++) {
+		for (int i = 0; i < Length(); i++) {
 			l.add(elements[i]);
 		}
 		return l;

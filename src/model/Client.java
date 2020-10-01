@@ -36,6 +36,8 @@ public class Client implements Comparable<Client> {
 		payday = (c.get(Calendar.DATE));
 		year = (c.get(Calendar.YEAR));
 		operations = new Stack<>();
+		Operation o = new Operation("Creation", 0);
+		operations.push(o);
 
 	}
 
