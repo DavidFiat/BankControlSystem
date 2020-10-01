@@ -50,27 +50,27 @@ public class TableController {
 
 	@FXML
 	private TableColumn<Client, String> amountView;
-	
-	//=====================================================
-	
-	//register.fxml
+
+	// =====================================================
+
+	// register.fxml
 	@FXML
-    private TextField customerTF;
+	private TextField customerTF;
 
-    @FXML
-    private TextField idTF;
+	@FXML
+	private TextField idTF;
 
-    @FXML
-    private TextField accountTF;
+	@FXML
+	private TextField accountTF;
 
-    @FXML
-    private RadioButton debitBox;
+	@FXML
+	private RadioButton debitBox;
 
-    @FXML
-    private RadioButton creditBox;
+	@FXML
+	private RadioButton creditBox;
 
-    //==================================================================
-    
+	// ==================================================================
+
 	public TableController(PrincipalController principalController) {
 		menuControl = new MenuController(this);
 		principalControl = principalController;
@@ -89,14 +89,13 @@ public class TableController {
 		});
 		ObservableList<Client> listClient = FXCollections.observableArrayList(list);
 
-
 		nameView.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
 		idView.setCellValueFactory(new PropertyValueFactory<Client, String>("ID"));
 		timeView.setCellValueFactory(new PropertyValueFactory<Client, String>("year"));
 		amountView.setCellValueFactory(new PropertyValueFactory<Client, String>("amount"));
 		tableCustomer.setItems(listClient);
 	}
-	
+
 	public Client searchClient(char status) {
 		return principalControl.searchClient(cl.getID(), status);
 	}
@@ -136,7 +135,11 @@ public class TableController {
 
 	@FXML
 	void amountView(ActionEvent event) {
+<<<<<<< HEAD
 		//initialize(principalControl.list(3));
+=======
+		// initialize(principalControl.list(3));
+>>>>>>> master
 	}
 
 	@FXML
@@ -175,28 +178,28 @@ public class TableController {
 		}
 
 	}
-	
+
 	@FXML
-    void register(ActionEvent event) {
+	void register(ActionEvent event) {
 		String name = customerTF.getText();
 		String id = idTF.getText();
 		String account = accountTF.getText();
 		int card = 0;
-		
+
 		if (debitBox.isSelected()) {
 			card = 2;
 		}
 		if (creditBox.isSelected()) {
 			card = 1;
 		}
-		
+
 		Client c = new Client(name, id, account, card, -1);
-		
+
 		principalControl.addClient(c);
-		
+
 		customerTF.setText("");
 		idTF.setText("");
 		accountTF.setText("");
-    }
+	}
 
 }

@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import datastructure.Queue;
-import model.Client;
 
 public class QueueTest {
 
