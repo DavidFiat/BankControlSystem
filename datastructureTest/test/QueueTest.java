@@ -16,12 +16,12 @@ public class QueueTest {
 	}
 
 	public void setup2() {
-		queue = new Queue();
+		queue = new Queue<String>();
 		queue.enqueue("Juan Manuel");
 	}
 
 	public void setup3() {
-		queue = new Queue();
+		queue = new Queue<String>();
 		queue.enqueue("David Fiat");
 		queue.enqueue("Juan Reyes");
 		queue.enqueue("Linus Torvalds");
@@ -41,7 +41,7 @@ public class QueueTest {
 		String s = queue.front();
 		assertTrue(s.equals("Juan Manuel"));
 		String s2 = queue.front();
-		assertTrue(s2.equals("Maria"));
+		assertFalse(s2.equals("Maria"));
 	}
 
 	@Test
