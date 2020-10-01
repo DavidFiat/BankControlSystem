@@ -26,8 +26,9 @@ public class Stack<P> implements IStack<P> {
 				top = null;
 
 			}
-			top = top.getNext();
-
+			if (top != null) {
+				top = top.getNext();
+			}
 			size--;
 		}
 
