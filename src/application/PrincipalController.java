@@ -186,7 +186,7 @@ public class PrincipalController {
 		
 		if (list == 1) {
 			li = bank.returnClientListByName();
-			System.out.println(li.toString());
+			
 		}
 		if (list == 2) {
 			li = bank.returnClientListByID();

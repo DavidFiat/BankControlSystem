@@ -146,7 +146,7 @@ public class TableController {
 
 	@FXML
 	void nameView(ActionEvent event) {
-		
+		initialize(principalControl.list(1));
 	}
 
 	@FXML

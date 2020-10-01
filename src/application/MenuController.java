@@ -124,7 +124,7 @@ public class MenuController {
 			}
 	}
 	
-	private void showData() {
+	public void showData() {
 		Client temp = tableControl.searchClient('c');
 		
 		customerLb.setText(temp.getName());

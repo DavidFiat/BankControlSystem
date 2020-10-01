@@ -18,6 +18,8 @@ public class TurnController{
 	//RELATIONS
 	private PrincipalController principalControl;
 	
+	//==============================================
+	
 	@FXML
 	private BorderPane mainPanel;
 	
