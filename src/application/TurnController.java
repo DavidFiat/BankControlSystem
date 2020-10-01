@@ -1,6 +1,7 @@
 package application;
 
-import java.io.IOException;
+import java.io.IOException; 
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.StageStyle;
+import model.Client;
 
 public class TurnController{
 	//RELATIONS
@@ -28,9 +29,13 @@ public class TurnController{
     
     @FXML
     private ComboBox<String> priorityBox;
+    
+    ArrayList<Client>listClientsG = new ArrayList<Client>();
+    ArrayList<Client>listClientsP = new ArrayList<Client>();
 	
 	public TurnController(PrincipalController principalController) {
 		principalControl = principalController;
+		
 	}
 	
 	void initializeCombo() {
@@ -42,12 +47,40 @@ public class TurnController{
 	}
 	 @FXML
 	 void turn(ActionEvent event) {
+		 String name = customerTurn.getText();
+		 String id = idTurn.getText();
+		 int priority = 0;
+		 
+		 if (priorityBox.getSelectionModel().getSelectedItem().equalsIgnoreCase("General")) {
+			priority = 1;
+		 }else if (priorityBox.getSelectionModel().getSelectedItem().equalsIgnoreCase("Estado Embarazo")) {
+			priority = 4;
+		 }else if (priorityBox.getSelectionModel().getSelectedItem().equalsIgnoreCase("Niño en Brazos")) {
+			priority = 5;
+		 }else if (priorityBox.getSelectionModel().getSelectedItem().equalsIgnoreCase("Discapacitado")) {
+			priority = 2;
+		 }else {
+			priority = 3;
+		 }
+		 
+		 Client cl = new Client(name, id, priority);
+		 String queue = "";
+		 
+		 if (priority == 1) {
+			queue = "General";
+			principalControl.enqueueBoth(cl, 1);
+		 }else {
+			queue = "Prioridad";
+			principalControl.enqueueBoth(cl, 2);
+		}
+		 
 		 Alert alert = new Alert(AlertType.INFORMATION);
-	    	alert.setTitle("Your turn");
-	    	alert.setHeaderText(null);
-	    	alert.setContentText("Your turn is");
-	    	alert.initStyle(StageStyle.UTILITY);
-	    	alert.showAndWait();
+		 alert.setTitle("YOUR TURN");
+		 alert.setHeaderText(null);
+		 alert.setContentText("Has sido asginado a la cola: " + queue);
+		 alert.showAndWait();
+		 
+		 
 	 }
 	 
 	 @FXML
@@ -67,5 +100,12 @@ public class TurnController{
 		}
 		 
 	 }
-
+	 
+	 public ArrayList<Client> getListClientsG(){
+		 return listClientsG;
+	 }
+	 
+	 public ArrayList<Client> getListClientsP(){
+		 return listClientsP;
+	 }
 }

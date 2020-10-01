@@ -1,5 +1,7 @@
 package datastructure;
 
+import java.util.List;
+
 public interface IHeap<H> {
 
 	public void heapSort();

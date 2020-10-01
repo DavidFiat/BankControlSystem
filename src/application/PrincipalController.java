@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import customExceptions.RepeatedElementException;
@@ -91,8 +92,6 @@ public class PrincipalController {
 			mainPanel.getChildren().clear();
 			mainPanel.setCenter(root);
 			
-			//tableControl.prueba();
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,6 +144,8 @@ public class PrincipalController {
 			mainPanel.getChildren().clear();
 			mainPanel.setCenter(root);
 			
+			queueControl.initializeGeneral();
+			queueControl.initializePriority();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -169,6 +170,17 @@ public class PrincipalController {
 		}
     }
     
+    public Client searchClient(String id, char status) {
+    	Client c = null;
+    	
+    	if (status == 'd') {
+			c = bank.searchDeserterC(id);
+		}else {
+			c = bank.searchC(id);
+		}
+    	
+    	return c;
+    }
     public List<Client> list(int list){
 		List<Client> li = null;
 		
@@ -181,6 +193,35 @@ public class PrincipalController {
 		}
 		return	 li;
     	
+    }
+    
+    
+	public ArrayList<Client> clientTurnG(){
+    	return turnControl.getListClientsG();
+    }
+    
+	public ArrayList<Client> clientTurnP(){
+		return turnControl.getListClientsP();
+    }
+    
+    public void dequeueBoth(int i) {
+    	if (i == 1) {
+			bank.getClientsQueue().dequeue();
+			clientTurnG().remove(0);
+		}if (i == 2) {
+			bank.attend();
+			clientTurnP().remove(0);
+		}
+    }
+    
+    public void enqueueBoth(Client aux, int i ) {
+    	if (i == 1) {
+			bank.getClientsQueue().enqueue(aux);
+			clientTurnG().add(aux);
+		}if (i == 2) {
+			bank.addPriorityQueue(aux);
+			clientTurnP().add(aux);
+		}
     }
 }
 

@@ -4,20 +4,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="621.0" stylesheets="@../media/Background.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="621.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#returnInterface" text="Atras">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="20.0" />
                </font>
+            </Button>
+            <Pane prefHeight="59.0" prefWidth="48.0" />
+            <Button mnemonicParsing="false" onAction="#refresh">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../media/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </HBox>
@@ -36,14 +49,34 @@
    <center>
       <SplitPane dividerPositions="0.5008077544426495" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="main-bg" stylesheets="@../media/Background.css">
                <children>
-                  <ListView fx:id="generalList" layoutX="54.0" layoutY="20.0" prefHeight="240.0" prefWidth="200.0" />
+                  <ListView fx:id="generalList" layoutX="54.0" layoutY="36.0" prefHeight="240.0" prefWidth="200.0" />
+                  <Label layoutX="114.0" layoutY="-2.0" text="General" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="117.0" layoutY="283.0" mnemonicParsing="false" onAction="#attendGeneral" text="Atender">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="main-bg" stylesheets="@../media/Background.css">
                <children>
-                  <ListView fx:id="priorityList" layoutX="53.0" layoutY="20.0" prefHeight="240.0" prefWidth="200.0" />
+                  <ListView fx:id="priorityList" layoutX="53.0" layoutY="36.0" prefHeight="240.0" prefWidth="200.0" />
+                  <Label layoutX="113.0" layoutY="-2.0" text="Priority" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="22.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="116.0" layoutY="283.0" mnemonicParsing="false" text="Atender">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="14.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
         </items>

@@ -1,15 +1,14 @@
 package datastructure;
 
-import java.util.List;
-
 public class Heap<H extends Comparable<H>> implements IHeap<H> {
 
 	public final static int CAPACITY = 100;
 	private H[] elements;
 	private static int heapSize;
 
+	
 	public Heap() {
-	//	elements = (H[]) new Object[CAPACITY];
+		//elements = (H[]) new Object[CAPACITY];
 		heapSize = 0;
 	}
 
@@ -69,6 +68,7 @@ public class Heap<H extends Comparable<H>> implements IHeap<H> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void insert(H element) {
 

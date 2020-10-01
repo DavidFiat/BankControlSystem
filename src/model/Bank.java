@@ -84,7 +84,7 @@ public class Bank {
 
 	public List<Client> returnClientListByName() {
 		List<Client> l = clients.returnHash();
-		Heap.heapSort(l);
+		//Heap.heapSort(l);
 		return l;
 
 	}

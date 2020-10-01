@@ -20,7 +20,7 @@ public class Main2 {
 		l.add("E");
 		l.add("F");
 
-		List<String> a = Heap.heapSort(l);
+	//	List<String> a = Heap.heapSort(l);
 		System.out.println(l);
 
 	}

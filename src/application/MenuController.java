@@ -125,17 +125,19 @@ public class MenuController {
 	}
 	
 	private void showData() {
-		customerLb.setText(TableController.cl.getName());
-		idLB.setText(TableController.cl.getID());
-		accountLB.setText(TableController.cl.getAccount());
+		Client temp = tableControl.searchClient('c');
 		
-		if (TableController.cl.getCard() == 1) {
+		customerLb.setText(temp.getName());
+		idLB.setText(temp.getID());
+		accountLB.setText(temp.getAccount());
+		
+		if (temp.getCard() == 1) {
 			cardLB.setText("Credito");
-		}else if (TableController.cl.getCard() == 2) {
+		}else if (temp.getCard() == 2) {
 			cardLB.setText("Debito");
 		}
 		
-		//amountDebitLB.setText(String.valueOf(TableController.cl.getAmount()));
+		//amountDebitLB.setText(String.valueOf(.getAmount()));
 	}
 
 	void openMoneyWindow() {
@@ -161,10 +163,13 @@ public class MenuController {
 	@FXML
 	void consignAction(ActionEvent event) {
 		openMoneyWindow();
+		
+		Client temp = tableControl.searchClient('c');
+		
 		consignBT.setVisible(true);
 		retireBT.setVisible(false);
 		
-		TableController.cl.consign(Double.parseDouble(amountTF.getText()));
+		temp.consign(Double.parseDouble(amountTF.getText()));
 	}
 	 
 	@FXML
@@ -173,8 +178,10 @@ public class MenuController {
 		retireBT.setVisible(true);
 		consignBT.setVisible(false);
 		
+		Client temp = tableControl.searchClient('c');
+		
 		try {
-			TableController.cl.withdraw(Double.parseDouble(amountTF.getText()));
+			temp.withdraw(Double.parseDouble(amountTF.getText()));
 		} catch (NoEnoughMoneyException ne) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("DINERO INSUFICIENTE");
@@ -186,9 +193,11 @@ public class MenuController {
 	
 	@FXML
     void cancelAction(ActionEvent event) {
+		Client temp = tableControl.searchClient('c');
+		
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("WARNING CANCEL");
-		alert.setHeaderText("La operacion que vas a cancelar es:" + TableController.cl.visualizeLast().getOperation());
+		alert.setHeaderText("La operacion que vas a cancelar es:" + temp.visualizeLast().getOperation());
 		alert.setContentText("¿Seguro que quieres cancelar la operacion?");
 		alert.initStyle(StageStyle.UTILITY);
 		
@@ -200,6 +209,8 @@ public class MenuController {
 
 	@FXML
     void undoAction(ActionEvent event) {
+		Client temp = tableControl.searchClient('c');
+		
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("WARNING UNDO");
 		alert.setHeaderText("La ultima operacion que realizó fue: ");
@@ -208,7 +219,7 @@ public class MenuController {
 		
 		Optional<ButtonType>result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
-			TableController.cl.UNDO();
+			temp.UNDO();
 		}
     }
 }
