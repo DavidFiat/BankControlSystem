@@ -136,7 +136,7 @@ public class TableController {
 
 	@FXML
 	void amountView(ActionEvent event) {
-
+		initialize(principalControl.list(3));
 	}
 
 	@FXML
@@ -151,7 +151,7 @@ public class TableController {
 
 	@FXML
 	void timeView(ActionEvent event) {
-
+		initialize(principalControl.list(4));
 	}
 
 	@FXML

@@ -191,6 +191,12 @@ public class PrincipalController {
 		if (list == 2) {
 			li = bank.returnClientListByID();
 		}
+		if (list == 3) {
+			li = bank.returnClientListByAmount();
+		}
+		if (list == 4) {
+			li = bank.returnClientListByYear();
+		}
 		return	 li;
     	
     }
