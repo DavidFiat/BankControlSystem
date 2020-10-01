@@ -37,6 +37,7 @@ public class Client implements Comparable<Client> {
 		year = (c.get(Calendar.YEAR));
 		operations = new Stack<>();
 		Operation o = new Operation("Creation", 0);
+
 		operations.push(o);
 
 	}
@@ -45,6 +46,7 @@ public class Client implements Comparable<Client> {
 		this.name = name;
 		this.ID = iD;
 		this.priority = priority;
+
 	}
 
 	public int getPriority() {
