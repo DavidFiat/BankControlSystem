@@ -1,6 +1,8 @@
 package model;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 
 import customExceptions.RepeatedElementException;
 import datastructure.*;
@@ -104,6 +106,33 @@ public class Bank {
 		}
 		return l;
 
+	}
+	
+	public void bucketSort() {
+		List<Client> lista = deserters.returnHash();
+		if( lista.size() <= 0 )
+			return;
+	
+		@SuppressWarnings("unchecked")
+		Vector<Client>[] buckets = new Vector[lista.size()];
+		for( int i = 0 ; i < lista.size() ; i++ ) {
+			buckets[i] = new Vector<>();
+		}
+		
+		for( int i = 0 ; i < lista.size() ; i++ ) {
+			buckets[i].add(lista.get(i));
+		}
+		
+		for( int i = 0 ; i < lista.size() ; i++ ) {
+			Collections.sort(buckets[i]);
+		}
+		
+		int index = 0;
+		for( int i = 0 ; i < lista.size() ; i++ ) {
+			for( int j = 0 ; j < buckets[i].size() ; j++ ) {
+				lista.set(index++, buckets[i].get(j));
+			}
+		}
 	}
 
 }
