@@ -58,6 +58,8 @@ public class MenuController {
     @FXML
     private Label amountDebitLB;
 
+    @FXML
+    private TextField debtTF;
     //=========================================================================
     
 	public MenuController(TableController tableController) {
@@ -137,7 +139,7 @@ public class MenuController {
 			cardLB.setText("Debito");
 		}
 		
-		//amountDebitLB.setText(String.valueOf(.getAmount()));
+		amountDebitLB.setText(String.valueOf(temp.getAmount()));
 	}
 
 	void openMoneyWindow() {
@@ -163,13 +165,21 @@ public class MenuController {
 	@FXML
 	void consignAction(ActionEvent event) {
 		openMoneyWindow();
-		
-		Client temp = tableControl.searchClient('c');
-		
 		consignBT.setVisible(true);
 		retireBT.setVisible(false);
-		
+			
+	}
+	
+	@FXML
+	void consign(ActionEvent event) {
+		Client temp = tableControl.searchClient('c');
 		temp.consign(Double.parseDouble(amountTF.getText()));
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("CONSIGNACION EXITOSA");
+		alert.setHeaderText(null);
+		alert.setContentText("Se ha realizado una consginacion por " + Double.parseDouble(amountTF.getText()));
+		alert.showAndWait();
 	}
 	 
 	@FXML
@@ -178,10 +188,19 @@ public class MenuController {
 		retireBT.setVisible(true);
 		consignBT.setVisible(false);
 		
-		Client temp = tableControl.searchClient('c');
-		
+	}
+	
+	@FXML
+    void retire(ActionEvent event) {
 		try {
-			temp.withdraw(Double.parseDouble(amountTF.getText()));
+			Client aux = tableControl.searchClient('c');
+			aux.withdraw(Double.parseDouble(amountTF.getText()));
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("RETIRO EXITOSO");
+			alert.setHeaderText(null);
+			alert.setContentText("Se ha realizado un retiro de " + Double.parseDouble(amountTF.getText()));
+			alert.showAndWait();
 		} catch (NoEnoughMoneyException ne) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("DINERO INSUFICIENTE");
@@ -189,7 +208,7 @@ public class MenuController {
 			alert.setContentText(ne.getMessage());
 			alert.showAndWait();
 		}
-	}
+    }
 	
 	@FXML
     void cancelAction(ActionEvent event) {
@@ -197,23 +216,23 @@ public class MenuController {
 		
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("WARNING CANCEL");
-		alert.setHeaderText("La operacion que vas a cancelar es:" + temp.visualizeLast().getOperation());
 		alert.setContentText("¿Seguro que quieres cancelar la operacion?");
 		alert.initStyle(StageStyle.UTILITY);
 		
 		Optional<ButtonType>result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
-			
+			returnInterface(event);
 		}
     }
 
 	@FXML
     void undoAction(ActionEvent event) {
 		Client temp = tableControl.searchClient('c');
+		String operation = temp.visualizeLast().getOperation();
 		
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("WARNING UNDO");
-		alert.setHeaderText("La ultima operacion que realizó fue: ");
+		alert.setHeaderText("La ultima operacion que realizó fue: " +  operation);
 		alert.setContentText("¿Seguro que quieres deshacer la ultima operacion?");
 		alert.initStyle(StageStyle.UTILITY);
 		
@@ -221,5 +240,38 @@ public class MenuController {
 		if (result.get() == ButtonType.OK) {
 			temp.UNDO();
 		}
+    }
+	
+	@FXML
+    void payCard(ActionEvent event) {
+		Client aux = tableControl.searchClient('c');
+		try {
+			aux.payCreditCard(Double.parseDouble(debtTF.getText()));
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("PAGO");
+			alert.setHeaderText(null);
+			alert.setContentText("Se ha realizado el pago");
+			alert.showAndWait();
+		} catch ( NoEnoughMoneyException n) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("DINERO INSUFICIENTE");
+			alert.setHeaderText(null);
+			alert.setContentText(n.getMessage());
+			alert.showAndWait();
+		}catch (NumberFormatException e) {
+			System.err.println(e.getLocalizedMessage());
+		}
+    }
+	
+	@FXML
+    void payCash(ActionEvent event) {
+		Client aux = tableControl.searchClient('c');
+		aux.payCash(Double.parseDouble(debtTF.getText()));
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("PAGO");
+		alert.setHeaderText(null);
+		alert.setContentText("Se ha realizado el pago");
+		alert.showAndWait();
     }
 }

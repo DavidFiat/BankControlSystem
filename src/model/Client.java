@@ -149,6 +149,11 @@ public class Client implements Comparable<Client> {
 		}
 
 	}
+	
+	public void payCash(double debt) {
+		Operation o = new Operation("CashPayment", getAmount() - debt);
+		operations.push(o);
+	}
 
 	public Operation visualizeLast() {
 		return operations.top();

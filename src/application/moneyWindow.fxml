@@ -26,12 +26,12 @@
             </HBox>
             <Pane prefHeight="100.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="retireBT" layoutX="251.0" layoutY="29.0" mnemonicParsing="false" text="Retirar" visible="false">
+                  <Button fx:id="retireBT" layoutX="251.0" layoutY="29.0" mnemonicParsing="false" onAction="#retire" text="Retirar" visible="false">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="consignBT" layoutX="241.0" layoutY="29.0" mnemonicParsing="false" text="Consignar" visible="false">
+                  <Button fx:id="consignBT" layoutX="241.0" layoutY="29.0" mnemonicParsing="false" onAction="#consign" text="Consignar" visible="false">
                      <font>
                         <Font name="Comic Sans MS Bold Italic" size="20.0" />
                      </font>
